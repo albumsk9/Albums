@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>    
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+    body{
+        width:100%;
+        font-family:Arial,sans-serif;
+        background: white;
+        line-height:1.6;
+        transition:all 0.3s;
+    }
+    a{
+        text-decoration:none;
+        color: white;
+        font-size:17px;
+        display: flex;
+    }
+    a span{
+        color: #ff2975;
+    }
+    header span1{
+        margin-left: 45%;
+    }
+    header span1 a {
+        color: white;
+        font-size: 15px;
+        background: #43a047;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 5px 4px;
+        border-radius: 7px;
+    }
+    img{
+        max-width:100%;
+        display:block;
+    }
+    header{
+        position:fixed;
+        top:0;left:0;
+        width:100%;
+        background: black;
+        box-shadow: 0 2px 8px white;
+        z-index:1000;
+        transition:all 0.3s;
+    }
+    header .container{
+        max-width:370px;
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    #menu-close {
+        display: none;
+        width: 11%;
+        height: 45px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        color: white;
+    }
+    .active-link {
+        color: #5c6bc0 !important;
+        font-weight: bold;
+    }
+    #menu-toggle{
+        display:none;
+        width:11%
+        height:45px;
+        font-size:1.5rem;
+        cursor:pointer;
+    }
+    #mobile-menu{
+        display:none;
+        background:#181818;
+        padding:1rem;
+        border-top:1px solid gray;
+    }
+    #mobile-menu a{
+        display:block;
+        padding:0.2rem 0;
+        color: white;
+        font-size: 17px;
+    }
+    @media(max-width:768px){nav{display:none;}#menu-toggle{display:block;}}
+    .banner{
+        padding:20px;
+        border-radius:15px;
+        background:linear-gradient(90deg,#191414,#1db954,#191414);
+    }
+    .banner h1{
+        font-size:22px;
+        color: white;
+    }
+    @keyframes glow{
+    from{
+    text-shadow:0 0 10px #e57373;
+    }
+    to{
+    text-shadow:0 0 40px #b2ebf2,0 0 80px #5c6bc0;
+    }
+    }
+    /*---//---/ SECTIONS /---//---*/
+    section {
+        width: auto;
+        display: none;
+        max-width: 500px;
+        padding: 5em 0.4em;
+    }
+    section.active {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    footer {
+        text-align: center;
+        background: #0a3d62;
+        color: #a2b1c6;
+        padding: 1em;
+        font-size: 0.9em;
+        border-radius: 0 0 12px 12px;
+    }
+    /*---//---/ SERVICES /---//---*/
+    .services {
+        max-width: 1200px;
+        margin: auto;
+        padding: 4rem 1rem;
+    }
+    .services-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .grid {
+        display: grid;
+        gap: 2rem;
+    }
+    h4{
+        color: #181818;
+        opacity: 0.9;
+        font-size: 20px;
+    }
+    .services-header p {
+        color: gray;
+    }
+@media(min-width:768px) {
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+        }}
+@media(min-width:992px) {
+    .grid-3 {
+        grid-template-columns: repeat(3,1fr);
+        }}
+    .service-card {
+        width: 99%;
+        background: #eeeeee;
+        color: #F06292;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #F06292;
+    }
+    .service-icon {
+        font-size: 2rem;
+        color: #1e3c72;
+        margin-bottom: 1rem;
+    }
+    .service-card h3 {
+        margin-bottom: 0.5rem;
+        color: #1e3c72;
+    }
+     h3{
+        font-size: 16px;
+     }
+    h3 span{
+        color: #2e7d32;
+        font-size: 16px;
+    }
+    .service-card ul {
+        padding-left: 1rem;
+    }
+    ul span{
+        color: red;
+        opacity: 0.6;
+    }
+    lu span{
+        font-size: 13px;
+    }
+    .service-card lu {
+        margin: 0.9rem 0;
+        color: black ;
+    }
+@media(max-width:768px) {
+    .grid-3 {
+            grid-template-columns: 1fr;
+        }}
+    /*---//---/ CONTACTS /---//---*/
+    .form-title {
+        text-align: center;
+        color: #333;
+        color: #764ba2;
+        margin-bottom: 30px;
+        font-size: 26px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .form-title span {
+        color:  #667eea;
+    }
+    .form-title::before {
+        content: '';
+        position: absolute;
+        height: 3px;
+        left: 0%;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #71b7e6, #9b5b);
+        }
+    h6{
+        font-size: 17px;
+        text-align: center;
+        padding: 2rem;
+        color: black;
+        opacity: 0.6;
+    }
+    .name {
+        color: #0a3d62;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        opacity: 0.7;
+    }
+    .sujet {
+        color: #0a3d62;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        opacity: 0.7;
+    }
+    .msg {
+        color: #0a3d62;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        opacity: 0.7;
+    }
+    .message {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        border-color: #2196F3;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        background: transparent;
+    }
+    h5{
+        color: #0a3d62;
+        font-size: 19px;
+    }
+    select:focus,
+    textarea:focus {
+        outline: none;
+        color: black;
+        border-color: #2196F3;
+        background-color: transparent;
+    }
+    textarea {
+        background-color: transparent;
+        color: black;
+        resize: vertical;
+        min-height: 120px;
+    }
+    input[type="number"],
+    input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        background-color: transparent;
+        border: 1px solid #2196F3;
+        border-radius: 8px;
+        color: black;
+        font-size: 1.1em;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input[type="number"]:focus,
+    input[type="text"]:focus {
+        border-color: #2196F3;
+        color: black;
+    }
+    input::placeholder {
+        color: #42A5F5;
+        font-size: 19px;
+    }
+    .submit{
+        background-color: #5d5dfc;
+        text-align: center;
+        border-radius: 6px;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+    input, button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+    }
+    .count{
+        position:absolute;
+        top:-5px;
+        right:3px;
+        background:red;
+        color:white;
+        border-radius:50%;
+        padding:3px 7px;
+        font-size:12px;
+    }
+    .inbox{
+        position:fixed;
+        top:60px;
+        right:10px;
+        width:250px;
+        background:white;
+        border-radius:8px;
+        box-shadow:0 0 10px gray;
+        display:none;
+        max-height:300px;
+        overflow:auto;
+    }
+      /* barre */
+    .topbar{
+        display:flex;
+        align-items:center;
+        gap:20px;
+     }
+     
+    /* icone svg */
+    .bell{
+        width:35px;
+        display: flex;
+        cursor:pointer;
+        position:relative;
+        left: 70%;
+        font-size: 20px;
+     }
+        
+    /* badge rouge */
+    .badge{
+        position:absolute;
+        top:-5px;
+        right:-5px;
+        background:red;
+        color:white;
+        border-radius:50%;
+        padding:3px 7px;
+        font-size:12px;
+    }
+    /* box notification */
+    .notifications{
+        position:absolute;
+        top:70px;
+        right:40px;
+        width:300px;
+        background:#eeeeee;
+        border-radius:10px;
+        padding:15px;
+        display:none;
+        box-shadow:0 0 15px rgba(0,0,0,0.4);
+    }
+        
+    /* erreur */
+    .error{
+        border-left:4px solid red;
+        }
+    .success{
+        border-left:4px solid #2ecc71;
+    }
+    .songs {
+        display: none;
+        margin-top: 20px;
+        animation: fadeIn 0.4s ease;
+    }
+    .song {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #eeeeee;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    .song img {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+    .song .info {
+        color: #181818;
+    }
+    .song:hover {
+        #42445Abackground: #b71c1c;
+    }
+    .back {
+        width: 50px;
+        padding: 5px 1px;
+        border-radius: 5px;
+        text-align: center;
+        margin-left: 5%;
+        background: #eeeeee;
+        margin-bottom: 15px;
+        cursor: pointer;
+        color: white;
+    }
+    h7{
+        margin-left: 35%;
+        color: red;
+        font-size: 29px;
+        font-weight: 700;
+    }
+    h3{
+        color: black;
+        opacity: 0.8;
+    }
+    .titre{
+        font-size: 20px;
+      }
+p5{
+    color: #0b1220;
+    font-size: 24px;
+    opacity: 0.5;
+    font-weight: 500;
+}
+    .music{
+        display:flex;
+        align-items:center;
+        padding:12px;
+        border-bottom:1px solid #ccc;
+        cursor:pointer;
+    }
+    .music img{
+    width:50px;
+    height:50px;
+    margin-right:10px;
+    border-radius: 3px;
+}
+/* 🎵 SONG ACTIVE */
+.music.active {
+    background: linear-gradient(100deg, #ffcdd2, #e57373, #ef9a9a);
+    color: white;
+    border-radius:6px;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* texte blanc */
+.music.active .show {
+    color: white;
+    font-weight: bold;
+}
+
+/* animation smooth */
+.music {
+    transition: all 0.3s ease;
+}
+.bottom-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background: #181818;
+    color:white;
+    display:none;
+    align-items:center;
+    padding:5px;
+}
+.bottom-bar img{
+    width:50px;
+    height:50px;
+    margin-right:10px;
+    border-radius: 3px;
+}
+.controls{margin-left:auto}
+button{background:none;border:none;color:white;font-size:18px}
+.player{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(50deg,black,#616161,#181818);
+    color:white;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+   }
+.player button{
+    font-size:25px;
+    margin-top:20px;
+   }
+.progress-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:80%;
+    margin:10px auto 0;
+    color:#e0e0e0;
+    font-size:12.5px;
+}
+.progress-row input[type="range"]{
+    flex:1;
+    accent-color:#e57373;
+    cursor:pointer;
+}
+.player-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:36px;
+    margin-top:6px;
+}
+.player-controls button{
+    font-size:22px;
+    margin-top:0;
+}
+#bigBtn{
+    font-size:34px;
+}
+.controls{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+#btnRepeat{
+    opacity:0.6;
+    transition:opacity .2s ease, color .2s ease;
+}
+#btnRepeat.active-control{
+    opacity:1;
+    color:#ff6a5e;
+}
+.Artiste{
+    width:240px;
+    height:230px;
+    margin:40px auto;
+    border-radius:15%;
+    box-shadow:0 15px 40px rgba(0,0,0,.6);
+    animation:spin 10s linear infinite;animation-play-state:paused}
+.playing{animation-play-state:running}
+.Artiste img{
+    width:100%;
+    height:100%;
+    border-radius: 6px;
+    }
+.top{
+        width: 50px;
+        padding: 5px 1px;
+        border-radius: 5px;
+        text-align: center;
+        margin-left: 5%;
+        background: #eeeeee;
+        margin-bottom: 15px;
+        cursor: pointer;
+        color: white;
+        margin-right: 80%;
+}
+#results, #history{
+    margin-top:10px;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.result-item{
+    display:flex;
+    align-items:center;
+    padding:10px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+}
+
+.result-item img{
+    width:50px;
+    height:50px;
+    border-radius:8px;
+    margin-right:10px;
+}
+
+.result-text{
+    flex:1;
+}
+
+.result-title{
+    font-weight:bold;
+}
+
+.result-artist{
+    font-size:12px;
+    color:gray;
+}
+
+.no-result{
+    padding:15px;
+    text-align:center;
+    color:gray;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+}
+
+.play-btn, .like-btn{
+    cursor:pointer;
+    font-size:18px;
+}
+.history-title{
+    padding:10px;
+    font-weight:bold;
+}
+
+
+    .albums {
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        overflow-x:auto;
+    }
+    .album {
+        min-width:140px;
+       background:transparent;
+    padding:5px;
+    transition:0.3s;
+    cursor:pointer;
+        }
+    .album:hover {
+            transform: scale(1.05);
+        }
+    .top-artist img {
+        width: 200%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    .top-artist p {
+        background: transparent;
+        box-shadow: 0 1px 5px gray;
+        border-radius: 6px;
+        margin: 0;
+        padding: 10px;
+        color: gray;
+        text-align: center;
+        font-weight: bold;
+    }
+    h9{
+        margin-left: 19%;
+        color: #03a9f4;
+        font-size: 23px;
+        font-weight: 500;
+    }
+
+/*----//----/ PROFILS /-------//----*/
+   .portfolio{
+        background: #eeeeee;
+        padding:25px;
+        margin: 5px;
+        border-radius:20px;
+        text-align:center;
+        box-shadow: 0 2px 8px #1877f2;
+   }
+   .portfolio p{
+        display: flex;
+        margin-left: 35%;
+   }
+    .portfolio h2{
+        color: #181818;
+        opacity: 0.8;
+    }
+    .portfolio img{
+        width:120px;
+        height:120px;
+        border-radius:50%;
+        margin-left: 32%;
+        object-fit:cover;
+        border:4px solid #1877f2;
+    }
+   .titre{
+        text-align: center;
+   }
+    .facebook{
+        color:#1877f2;
+        text-decoration:none;
+        font-weight:bold;
+    }
+    .facebook:hover{
+        text-decoration:underline;
+    }
+    .telephone{
+        margin-top:15px;
+        padding:10px;
+        background:#1877f2;
+        color:white;
+        border-radius:10px;
+   }
+   .telephone span{
+        opacity: 0.6;
+   }
+
+    @keyframes fadeIn {
+
+        from { opacity: 0; transform: translateY(20px); }
+
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    
+    .welcome{
+        width:auto;
+        overflow:hidden;
+    }
+    .firsts{
+        display:flex;
+        margin:13px;
+        gap:10px;
+        overflow-x:auto;
+        width:193%;
+        animation:sliderPro 20s infinite ease-in-out;
+    }
+    .first{
+        min-width: 360px;
+        text-align: center;
+        color: #757575;
+        font-weight: bold;
+        font-size: 18px;
+        padding:25px;
+        border-radius:6px;
+        background: url("time.jpg");
+    }
+    .first span{
+        color: #ff2975;
+        opacity: 0.6;
+    }
+
+/* animation avec pause */
+@keyframes sliderPro{
+
+    /* 1️⃣ premier bloc visible (pause 10s) */
+    0%{ transform:translateX(0); }
+    38%{ transform:translateX(0); }
+
+    /* 2️⃣ transition vers bloc 2 (3s) */
+    50%{ transform:translateX(-52%); }
+
+    /* 3️⃣ bloc 2 pause (10s) */
+    88%{ transform:translateX(-52%); }
+
+    /* 4️⃣ retour vers bloc 1 (3s) */
+    100%{ transform:translateX(0); }
+}
+    .start{
+        font-weight: bold;
+        font-size: 18px;
+        color: #181818;
+        opacity: 0.8;
+    }
+    .content{
+        display: flex;
+        gap: 15px;
+    }
+    .identification{
+        background: #eeeeee;
+        width: 50%;
+        padding: 5px 1px;
+        border-radius: 5px;
+        text-align: center;
+        margin-left: 5%;
+        margin-bottom: 15px;
+        color: #181818;
+        font-weight: 500;
+        opacity: 0.8;
+    }
+    .artist-profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px;
+        background: #eeeeee;
+        border-radius: 15px;
+    }
+    .artist-img {
+        width:120px;
+        height:80px;
+        margin: 5px;
+        border-radius:50%;
+        object-fit:cover;
+        border:4px solid #1877f2;
+    }
+    .artist-info {
+        font-size: 16px;
+        justify-content: center;
+        color: black;
+        margin: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .top1{
+        display:flex;
+        gap:15px;
+        overflow-x:auto;
+    }
+    .moozika{
+        margin: 5px;
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+        padding:10px;
+        border-radius:3px;
+    }
+    .search-box{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        background:#fff;
+        margin: 5px;
+        border:1px solid #E0E0E0;
+        border-radius:20px;
+        height: 50px;
+        padding:10px 16px;
+        max-width:400px;
+    }
+    .search-box svg{ color:#8B93A1; flex-shrink:0; }
+    .search-box input{
+        border:none;
+        outline:none;
+        flex:1;
+        font-family:'Inter', sans-serif;
+        font-size:14px;
+         color:#10192B;
+    }
+    .search-box input::placeholder{ color:#9AA3B5;
+    }
+    </style>
+<body>
+  <!----//----/ TETES/----//---->
+<header class="fadeUp">
+    <div class="container">
+    <a><h2><span>Z</span>yxel</h2></a><span1><a href="#login" onclick="showSection('login')">
+    <svg xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="24"
+        viewBox="0 0 24 25"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+    <circle cx="9" cy="8" r="3"/>
+    <path d="M4 19c0-3 2.5-5 5-5s5 2 5 5"/>
+    <path d="M14 12h6"/>
+    <path d="M17 9l3 3-3 3"/>
+    </svg>Connexion</span1</a>
+  
+    <button id="menu-toggle">☰</button>
+    <button id="menu-close" style="display:none;">X</button>
+    </div>
+    
+    <div id="mobile-menu">
+    <a href="#accueil" onclick="showSection('accueil')"><svg width="25" height="36" viewBox="0 0 24 4" fill="#3F51B5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3z" />
+    </svg> Accueil</a>
+
+    <a href="#Contact" onclick="showSection('contact')"><svg width="25" height="36" viewBox="0 0 24 4" fill="#3F51B5" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+    <path d="M16 3h4v4h-2V5h-2z"/>
+    </svg> Contact</a>
+    <a href="#Services" onclick="showSection('services')"><svg width="22" height="35" viewBox="0 0 24 5" fill="#3F51B5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.027 7.027 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 13.9 2h-3.8a.5.5 0 0 0-.49.42l-.36 2.54c-.58.23-1.12.54-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.71 8.48a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32a.5.5 0 0 0 .6.22l2.39-.96c.51.4 1.05.71 1.63.94l.36 2.54a.5.5 0 0 0 .49.42h3.8a.5.5 0 0 0 .49-.42l.36-2.54c.58-.23 1.12-.54 1.63-.94l2.39.96a.5.5 0 0 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5z"/>
+    </svg> Services</a>
+    
+    <a href="#Profil" onclick="showSection('profil')">
+    <svg width="23" height="30" viewBox="0 0 24 10" fill="#3F51B5" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="4" width="18" height="12" rx="2"/>
+    <rect x="9" y="18" width="6" height="2"/><tag>
+    </tag>
+    <path d="M9 9l-2 2 2 2M15 9l2 2-2 2" 
+        stroke="white" 
+        stroke-width="1.5" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+    </svg> Createurs</a> 
+    </div>
+</header>
+
+    <!---//---/ ACCUEIL /---//--->
+    <section id="accueil" class="active">
+        <div class="welcome">
+            <div class="firsts">
+                <div class="first">🔥 Découvre les meilleures musiques sur nos site <span>Z</span>yxel
+                </div>
+                <div class="first">Recherche des Good Vibes </br>🔍🎧🔊</div>
+            </div>
+        </div>
+        
+    <div class="search-box">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="text" id="search" placeholder="Rechercher..." onkeyup="searchMusicUltra()">
+    </div>
+        <div id="results"></div>
+        <div id="history"></div>
+       
+    <div id="startSection" class="start">Pour Commencer</div>
+
+    <div id="albumSection" class="albums">
+        
+        
+    <div class="album" onclick="openAlbum('album0')">
+        <div class="top-artist">
+            <img src="Andraina.jpg">
+            <p>Andraina</p></div>
+    </div>
+
+    <div class="album" onclick="openAlbum('album1')">
+        <div class="top-artist">
+            <img src="Brd.jpg">
+            <p>BRD</p></div>
+    </div>
+    
+    <div class="album" onclick="openAlbum('album3')">
+    <div class="top-artist">
+        <img src="Dadju.jpg">
+        <p>Dadju</p></div>
+    </div>
+</div>
+
+
+<div id="bestSection" class="start">Meilleures Songs</div>
+<div id="bestSongs">
+    <div class="music" onclick="playSong('audio95','Ed Sheeran - I see Fire', this)">
+    <img src="Sheeran.jpg">
+    <div class="show">I See Fire</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio96','Giveon - Heartbreak Anniversary', this)">
+    <img src="Giveon.jpg">
+    <div class="show">Heartbreak Anniversary</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio97','Blaiz Fayah x Tribal Kush - Bad', this)">
+    <img src="Blaiz.jpg">
+    <div class="show">Bad</div>
+    </div>
+</div>
+</div>
+
+
+<div id="topSection" class="start">Top Artiste</div>
+    <div id="FermeSection" class="artist-profile">
+        
+<div class="top1">
+    <div class="moozika">
+    <img src="Burna.jpg" class="artist-img" onclick="openAlbum('album4')">
+    <div class="artist-info">Burna</div>
+    </div>
+    
+    <div class="moozika">
+    <img src="Travis.jpg" class="artist-img" onclick="openAlbum('album5')">
+    <div class="artist-info">Travis</div>
+    </div>
+    
+    <div class="moozika">
+    <img src="Central.jpg" class="artist-img" onclick="openAlbum('album2')">
+    <div class="artist-info">Central</div>
+    </div>
+    
+    <div class="moozika">
+    <img src="Travis.jpg" class="artist-img" onclick="openAlbum('album5')">
+    <div class="artist-info">Travis</div>
+    </div>
+    
+    <div class="moozika">
+    <img src="Travis.jpg" class="artist-img" onclick="openAlbum('album5')">
+    <div class="artist-info">Travis</div>
+    </div>
+    
+    <div class="moozika">
+    <img src="Travis.jpg" class="artist-img" onclick="openAlbum('album5')">
+    <div class="artist-info">Travis</div>
+    </div>
+</div>
+</div>
+
+
+<div id="album0" class="songs">
+    <div class="content">
+    <div class="back" onclick="goBack()">↩️</div>
+    <div class="identification">Andraina</div>
+    </div>
+
+    <div class="music" onclick="playSong('audio25','Andraina ft Kevs - 6pm in ByPass', this)">
+    <img src="Andraina.jpg">
+    <div class="show">6pm in By pass</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio26','Andraina ft Kevs - Burning love', this)">
+    <img src="Andraina.jpg"><div class="show">Burning love</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio27','Andraina - Afoiko ho anao', this)">
+    <img src="Andraina.jpg">
+    <div class="show">Afoiko ho anao</div>
+    </div>
+</div>
+</div>
+
+
+<div id="album1" class="songs">
+    <div class="content">
+    <div class="back" onclick="goBack()">↩️</div>
+    <div class="identification">Boss du Rap Dah-man</div>
+    </div>
+
+    <div class="music" onclick="playSong('audio1','BRD - My inspirako', this)">
+    <img src="Brd.jpg">
+    <div class="show">My inspirako</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio2','BRD x Andry kl x Drey - The only one', this)">
+    <img src="Brd.jpg">
+    <div class="show">The only one</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio3','BRD ft FY - Ezaka', this)">
+    <img src="Brd.jpg">
+    <div class="show">Ezaka</div>
+    </div>
+</div>
+</div>
+
+
+<div id="album2" class="songs">
+    <div class="content">
+    <div class="back" onclick="goBack()">↩️</div>
+    <div class="identification">Central Cee</div>
+    </div>
+
+    <div class="music" onclick="playSong('audio55','Central Cee - 8 Ball', this)">
+    <img src="Central.jpg">
+    <div class="show">8 Ball</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio56','Central Cee - Air Bnb', this)">
+    <img src="Central.jpg">
+    <div class="show">Air Bnb</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio57','Central Cee - Bolide Noir', this)">
+    <img src="Central.jpg">
+    <div class="show">Bolide Noir</div>
+    </div>
+</div>
+</div>
+
+    <div id="album3" class="songs">
+    <div class="content">
+    <div class="back" onclick="goBack()">↩️</div>
+    
+    <div class="identification">Dadju</div>
+    </div>
+    <div class="music" onclick="playSong('audio100','Dadju - Bebe', this)">
+    <img src="Dadju.jpg">
+    <div class="show">Bébé</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio101','Dadju ft Tiakola - Dieu Merci', this)">
+    <img src="Dadju.jpg">
+    <div class="show">Dieu Merci</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio102','Dadju ft Ninho - Grand Bain', this)">
+    <img src="Dadju.jpg">
+    <div class="show">Grand Bain</div>
+    </div>
+</div>
+</div>
+
+    <div id="album4" class="songs">
+    <div class="content">
+    <div class="back" onclick="goBack()">↩️</div>
+    <div class="identification">Burna Boy</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio120','Burna Boy ft Ed Sheeran - For my Hand', this)">
+    <img src="Burna.jpg">
+    <div class="show">For my Hand</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio121','Burna Boy - Gbona', this)">
+    <img src="Burna.jpg">
+    <div class="show">Gbona</div>
+    </div>
+</div>
+</div>
+
+    <div id="album5" class="songs">
+    <div class="content">
+    <div class="back" onclick="goBack()">↩️</div>
+    <div class="identification">Travis Scoot</div>
+    </div>
+
+    <div class="music" onclick="playSong('audio135','Travis Scoot - 3500', this)">
+    <img src="Travis.jpg">
+    <div class="show">3500</div>
+    </div>
+    
+    <div class="music" onclick="playSong('audio136','Travis Scoot - Ok Alright', this)">
+    <img src="Travis.jpg">
+    <div class="show">Ok Alright</div>
+    </div>
+    <div class="music" onclick="playSong('audio137','Travis Scoot - Skitzo', this)">
+    <img src="Travis.jpg">
+    <div class="show">Skitzo</div>
+    </div>
+</div>
+</div>
+
+<!-- notification bas -->
+<div class="bottom-bar" id="bar" onclick="openPlayer()">
+    <img src="Brd.jpg">
+    <span id="title">Song</span>
+   
+    <div class="controls">
+        <button onclick="togglePlay(event)" id="btn">▶</button>
+        <button onclick="toggleRepeat(event)" id="btnRepeat" title="Répéter la chanson"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 2l4 4-4 4"></path>
+    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+    <path d="M7 22l-4-4 4-4"></path>
+    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+</svg></button>
+    </div>
+</div>
+
+<!-- lecteur -->
+<div class="player" id="player">
+    <div class="top" onclick="closePlayer()">↩️</div>
+    <!-- PLAYER -->
+    <div id="playerPage">
+        <div class="Artiste" id="album"><img src="IMG_20251219_073601.jpg"></div>
+        <div class="titre" id="playerTitle"></div>
+
+        <div class="progress-row">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="seekBar" value="0" min="0" max="100" step="0.1">
+            <span id="durationTime">0:00</span>
+        </div>
+
+        <div class="player-controls">
+            <button onclick="prevSong()" id="prevBtn">⏮</button>
+            <button onclick="togglePlay(event)" id="bigBtn">▶</button>
+            <button onclick="nextSong()" id="nextBtn">⏭</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- audios dans HTML -->
+<!-- 🔥BRD -->
+<audio id="audio1" src="BRD - INSPI.mp3"></audio>
+<audio id="audio2" src="ANDRY KL ft DREY ft BRD ft ABELLAH - The Only One.mp3"></audio>
+<audio id="audio3" src="BRD - EZAKA ft FY.mp3"></audio>
+
+<!-- 🔥ANDRAINA -->
+<audio id="audio25" src="11. 6pm In Bypass (Feat. Kev).mp3"></audio>
+<audio id="audio26" src="BURNING LOVE (feat.mp3"></audio>
+<audio id="audio27" src="16. Afoiko Ho Anao.mp3"></audio>
+
+<!-- 🔥 CENTRAL CEE -->
+<audio id="audio55" src="8 Ball.mp3"></audio>
+<audio id="audio56" src="Air Bnb.mp3"></audio>
+<audio id="audio57" src="CENTRAL CEE X JRK 19 - BOLIDE NOIR (MUSIC VIDEO)(MP3_160K).mp3"></audio>
+
+<!-- 🔥 MEILLEUR SONGS -->
+<audio id="audio95" src="I See Fire.mp3"></audio>
+<audio id="audio96" src="Heartbreak Anniversary.mp3"></audio>
+<audio id="audio97" src="Blaiz Fayah _ Tribal Kush - Bad (Official Music Video)(MP3_160K).mp3"></audio>
+
+<!-- 🔥 DADJU -->
+<audio id="audio100" src="MHD  Bébé (feat. Dadju).mp3"></audio>
+<audio id="audio101" src="DADJU   Dieu Merci ft. Tiakola (Clip Officiel)-DADJU-aa6048de84b28140727f952da566aa4c.mp3"></audio>
+<audio id="audio102" src="DADJU   Grand Bain ft. Ninho (Clip Officiel)-DADJU-1e7167f3ad52431219a420ec88ef66a0.mp3"></audio>
+
+<!-- 🔥 BURNA BOY -->
+<audio id="audio120" src="Burna_Boy_-_For_My_Hand_feat._Ed_Sheeran_[Official_Music_Video](128k).m4a"></audio>
+<audio id="audio121" src="Burna_Boy_-_Gbona_[Official_Music_Video](128k).m4a"></audio>
+<audio id="audio122" src="Burna_Boy_-_Last_Last_[Official_Music_Video](128k).m4a"></audio>
+
+<!-- 🔥 TRAVIS SCOOT -->
+<audio id="audio135" src="3500 (feat. Future &amp; 2 Chainz).mp3"></audio>
+<audio id="audio136" src="Ok Alright (feat. ScHoolboy Q).mp3"></audio>
+<audio id="audio137" src="SKITZO (feat. Young Thug).mp3"></audio>
+    </section>
+
+    <!---//---/ CONTACTS /---//--->
+<section id="contact">
+    <h1 class="form-title">Contact <span>Form</span></h1>
+          <div class="topbar">
+              <div class="bell" onclick="toggleInbox()">📥
+    <div class="count" id="count">0</div>
+</div>
+<!-- SVG cloche -->
+<div class="bell" onclick="openNotif()">
+<svg viewBox="0 0 24 24" fill="gray">
+<path d="M12 2C10 2 8 4 8 6V7C8 8 7 10 6 11V13H18V11C17 10 16 8 16 7V6C16 4 14 2 12 2Z"/>
+</svg>
+<div class="badge">2</div>
+</div>
+    </div>
+</div>
+
+<!-- notifications -->
+<div class="notifications" id="box">
+<div class="msg success">
+<svg width="22" viewBox="0 0 24 24" fill="#2ecc71">
+<path d="M9 16L5 12L6.4 10.6L9 13.2L17.6 4.6L19 6"/>
+</svg>
+<div>Veuillez utiliser une Email exacte
+</div>
+</div>
+<div class="msg error">
+<svg width="22" viewBox="0 0 24 24" fill="red">
+<path d="M12 2L1 21H23L12 2Z"/>
+</svg>
+<div>reponses quelques heures
+</div>
+</div>
+    </div>
+    <h6>Veuillez completer les formulaires pour que nous vous aiderons.</h6>
+    <form>
+
+<div class="inbox" id="inbox"></div>
+<div class="container">
+    <h5>Envoyez-nous des messages</h5>
+    <label for="name" class="name">Email :</label>
+    <input type="text" id="name" required>
+    
+    <label for="subject" class="sujet">Sujet :</label>
+    <input type="text" id="subject">
+    <label for="message" class="msg">Message :</label>
+    <textarea id="msg" rows="5" class="message" placeholder="Envoyer nous des messages ..."></textarea>
+    <button class="submit" onclick="send()">Envoyer</button>
+</div>
+    </form>
+    </section>
+    <!---//---/ SERVICES /---//--->
+    <section id="services">
+<div class="services-header fadeUp">
+<h4>🛒 Ce que nous offrons</h4>
+<p>
+Nous combinons expertise technique et vision stratégique pour vous fournir des solutions sur mesure.
+</p>
+</div>
+<div class="grid grid-3">
+<div class="service-card fadeUp">
+<div class="service-icon">
+💻
+</div>
+<h3>Développement Web</h3>
+<p>
+Des sites modernes et performants.
+</p>
+<ul>
+<lu>✔ Sites vitrines</lu><br>
+<lu>✔ E-commerce</lu><br>
+<lu>✔ Applications web</lu>
+</ul>
+</div>
+<div class="service-card fadeUp">
+<div class="service-icon">
+📱
+</div>
+<h3>Applications Mobiles</h3>
+<p>
+Expérience fluide sur toutes les plateformes.
+</p>
+<ul>
+<lu>✔ iOS et Android</lu><br>
+<lu>✔ Jeux similar</lu><br>
+<lu>✔ Apps d'entreprise</lu>
+</ul>
+</div>
+<div class="service-card fadeUp">
+<div class="service-icon">
+📊
+</div>
+<h3>Analyse de données</h3>
+<p>
+Exploitez vos données pour mieux décider.
+</p>
+<ul>
+<lu>✔ Scanner: Qr code , Sujets ...</lu><br>
+<lu>✔ Machine Learning</lu><br>
+<lu>✔ Tablau de bord</lu>
+</ul>
+</div>
+</div>
+</section>
+<!-----//-----/ CREATEURS /-----//------>
+  <section id="profil">
+    <div class="services-header fadeUp">
+<h4>🌐 Createurs du site</h4>
+<p>
+Profils et informations a propos du createurs.
+</p>
+</div>
+<div class="portfolio">
+    <!-- PHOTO -->
+    <img src="1753191497081.jpg" alt="Photo du créateur">
+
+    <!-- NOM -->
+    <h2>Yashi Evans</h2>
+
+    <!-- FACEBOOK -->
+    <p> 
+        <a class="facebook" href="https://www.facebook.com/evans.0790" target="_blank">
+            @Mickael
+        </a>
+    </p>
+
+    <!-- CONTACT -->
+    <div class="telephone">
+        Contact :<span> +261 38 55 858 80</span>
+        <br>
+        Email :<span> Albumsk9@gmail.com</span>
+    </div>
+</div>
+
+<div class="portfolio">
+    <!-- PHOTO -->
+    <img src="Messenger_creation_2BB642DE-23A5-42F6-9CE1-7A4087CE3515.jpeg" alt="Photo du créateur">
+
+    <!-- NOM -->
+    <h2>Aina Larissa</h2>
+
+    <!-- FACEBOOK -->
+    <p> 
+        <a class="facebook" href="https://www.facebook.com/profile.php?id=61585661070575" target="_blank">
+            @Ni Evans
+        </a>
+    </p>
+
+    <!-- CONTACT -->
+    <div class="telephone">
+        Contact :<span> +261 34 71 055 58</span>
+        <br>
+        Email :<span> Larissa28@gmail.com</span>
+    </div>
+</div>
+
+</section>
+    <!---//---/ PIEDS /---//--->
+    <footer>
+        &copy; 2026 | Albums .
+    </footer>
+</body>
+<script>
+    const sections = ["accueil", "contact", "services", "profil"];
+    
+    const menuBtn = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+    
+    // OUVRIR menu
+    menuBtn.onclick = () => {
+        mobileMenu.style.display = "block";
+        menuBtn.style.display = "none";
+        closeBtn.style.display = "block";
+    };
+    
+    // FERMER menu
+    closeBtn.onclick = () => {
+        mobileMenu.style.display = "none";
+        menuBtn.style.display = "block";
+        closeBtn.style.display = "none";
+    };
+    
+    // CHANGER SECTION + ACTIVE
+    function showSection(id) {
+        
+        // afficher section
+        sections.forEach(sec => {
+            const el = document.getElementById(sec);
+            if (el) {
+                el.classList.toggle("active", sec === id);
+            }
+        });
+        
+        // 🔥 lien actif
+        document.querySelectorAll("#mobile-menu a").forEach(link => {
+            link.classList.remove("active-link");
+        });
+        
+        event.currentTarget.classList.add("active-link");
+        
+        // 🔥 fermer menu après clic
+        mobileMenu.style.display = "none";
+        menuBtn.style.display = "block";
+        closeBtn.style.display = "none";
+    }
+    
+    // Animation au scroll
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add("animate");}
+      });
+    },{threshold:0.2});
+    document.querySelectorAll(".fadeUp").forEach(el=>observer.observe(el));
+
+//---//---/ ALBUMS /---//---//
+function openAlbum(id) {
+    
+    // ❌ cacher accueil
+    document.getElementById('albumSection').style.display = 'none';
+    document.getElementById('startSection').style.display = 'none';
+    document.getElementById('bestSection').style.display = 'none';
+    document.getElementById('bestSongs').style.display = 'none';
+    document.getElementById('FermeSection').style.display = 'none';
+    document.getElementById('topSection').style.display = 'none';
+    
+    // ❌ cacher tous les albums
+    document.querySelectorAll('.songs').forEach(s => s.style.display = 'none');
+    
+    // ✅ afficher album choisi
+    document.getElementById(id).style.display = 'block';
+}
+
+        function goBack() {
+    
+    // cacher albums ouverts
+    document.querySelectorAll('.songs').forEach(s => s.style.display = 'none');
+    
+    // ✅ remettre accueil
+    document.getElementById('albumSection').style.display = 'flex';
+    document.getElementById('startSection').style.display = 'block';
+    document.getElementById('bestSection').style.display = 'block';
+    document.getElementById('bestSongs').style.display = 'block';
+    document.getElementById('FermeSection').style.display = 'flex';
+    document.getElementById('topSection').style.display = 'block';
+}
+let currentAudio = null;
+let isPlaying = false;
+let isRepeating = false; // état du bouton 🔁 (répéter la chanson en cours)
+
+const playlist = [
+    // 🔥 BRD
+    { id: "audio1", title: "My inspirako", img: "Brd.jpg" },
+    { id: "audio2", title: "The only one", img: "Brd.jpg" },
+    { id: "audio3", title: "Ezaka", img: "Brd.jpg" },
+    
+    // 🔥 ANDRAINA
+    { id: "audio25", title: "6pm in ByPass", img: "Andraina.jpg" },
+    { id: "audio26", title: "Burning love", img: "Andraina.jpg" },
+    { id: "audio27", title: "Afoiko ho anao", img: "Andraina.jpg" },
+    
+    // 🔥 CENTRAL CEE
+    { id: "audio55", title: "8 Ball", img: "Central.jpg" },
+    { id: "audio56", title: "Air Bnb", img: "Central.jpg" },
+    { id: "audio57", title: "Bolide Noir", img: "Central.jpg" },
+    
+    // 🔥 MEILLEUR SONGS
+    { id: "audio95", title: "I See Fire", img: "Sheeran.jpg" },
+    { id: "audio96", title: "Heartbreak Anniversary", img: "Giveon.jpg" },
+    { id: "audio97", title: "Bad", img: "Blaiz.jpg" },
+    
+    // 🔥 DADJU
+    { id: "audio100", title: "Bébé", img: "Dadju.jpg" },
+    { id: "audio101", title: "Dieu Merci", img: "Dadju.jpg" },
+    { id: "audio102", title: "Grand Bain", img: "Dadju.jpg" },
+    
+    // 🔥 BURNA BOY
+    { id: "audio120", title: "For my Hand", img: "Burna.jpg" },
+    { id: "audio121", title: "Gbona", img: "Burna.jpg" },
+    { id: "audio122", title: "Last last", img: "Burna.jpg" },
+    
+    // 🔥 TRAVIS SCOOT
+    { id: "audio135", title: "3500", img: "Travis.jpg" },
+    { id: "audio136", title: "Ok Alright", img: "Travis.jpg" },
+    { id: "audio137", title: "Skitzo", img: "Travis.jpg" },
+];
+
+let currentActive = null;
+let currentIndex = -1; // position de la chanson en cours dans playlist[]
+
+// convertit des secondes en format m:ss (ex: 185 -> "3:05")
+function formatTime(seconds){
+    if (isNaN(seconds) || seconds < 0) return "0:00";
+    let m = Math.floor(seconds / 60);
+    let s = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+function playSong(id, title, element) {
+    
+    // 🔥 enlever ancien actif
+    if (currentActive) {
+        currentActive.classList.remove("active");
+    }
+    
+    if (element) {
+        element.classList.add("active");
+        currentActive = element;
+    } else {
+        currentActive = null;
+    }
+    
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    
+    currentAudio = document.getElementById(id);
+
+    if (!currentAudio) {
+        console.warn("Audio introuvable pour l'id :", id);
+        return;
+    }
+
+    currentAudio.loop = isRepeating;
+
+    currentAudio.play();
+    isPlaying = true;
+    
+    let music = playlist.find(s => s.id === id) || { title: title, img: "Brd.jpg" };
+
+    currentIndex = playlist.findIndex(s => s.id === id);
+    
+    let bar = document.getElementById('bar');
+    bar.style.display = 'flex';
+    
+    document.getElementById('title').innerText = title;
+    document.querySelector('#bar img').src = music.img;
+    
+    // PLAYER
+    document.getElementById('playerTitle').innerText = title;
+    document.querySelector('#album img').src = music.img;
+    
+    document.getElementById('btn').innerText = "⏸";
+    document.getElementById('bigBtn').innerText = "⏸";
+    
+    document.getElementById('album').classList.add("playing");
+
+    let durationEl = document.getElementById('durationTime');
+    let seekBar = document.getElementById('seekBar');
+
+    currentAudio.onloadedmetadata = () => {
+        durationEl.innerText = formatTime(currentAudio.duration);
+        seekBar.max = currentAudio.duration;
+    };
+    
+    if (!isNaN(currentAudio.duration) && currentAudio.duration > 0) {
+        durationEl.innerText = formatTime(currentAudio.duration);
+        seekBar.max = currentAudio.duration;
+    }
+
+    currentAudio.ontimeupdate = () => {
+        document.getElementById('currentTime').innerText = formatTime(currentAudio.currentTime);
+        seekBar.value = currentAudio.currentTime;
+    };
+
+    currentAudio.onended = () => {
+        nextSong();
+    };
+}
+
+function toggleRepeat(event) {
+    if (event) event.stopPropagation();
+
+    isRepeating = !isRepeating;
+
+    if (currentAudio) {
+        currentAudio.loop = isRepeating;
+    }
+
+    document.getElementById('btnRepeat').classList.toggle('active-control', isRepeating);
+}
+
+function nextSong(event) {
+    if (event) event.stopPropagation();
+    if (playlist.length === 0) return;
+
+    let nextIndex = (currentIndex + 1 + playlist.length) % playlist.length;
+    let next = playlist[nextIndex];
+    playSong(next.id, next.title);
+}
+
+function prevSong(event) {
+    if (event) event.stopPropagation();
+    if (playlist.length === 0) return;
+
+    let prevIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+    let prev = playlist[prevIndex];
+    playSong(prev.id, prev.title);
+}
+
+// PLAY / PAUSE
+function togglePlay(event){
+    event.stopPropagation();
+
+    if(!currentAudio) return;
+
+    if(isPlaying){
+        currentAudio.pause();
+        isPlaying = false;
+
+        document.getElementById('btn').innerText = "▶";
+        document.getElementById('bigBtn').innerText = "▶";
+        document.getElementById('album').classList.remove("playing");
+
+    }else{
+        currentAudio.play();
+        isPlaying = true;
+
+        document.getElementById('btn').innerText = "⏸";
+        document.getElementById('bigBtn').innerText = "⏸";
+        document.getElementById('album').classList.add("playing");
+    }
+}
+
+    // OUVRIR PLAYER
+    function openPlayer(){
+        document.getElementById('player').style.display = "flex";
+    }
+    
+    // FERMER PLAYER
+    function closePlayer(){
+        document.getElementById('player').style.display = "none";
+    }
+    function openNotif(){
+    
+    let box=document.getElementById("box");
+    
+    if(box.style.display=="block"){
+    box.style.display="none";
+    }
+    else{
+    box.style.display="block";
+    }
+    }
+    
+    let likes = JSON.parse(localStorage.getItem("likes")) || [];
+    let historyList = JSON.parse(localStorage.getItem("history")) || [];
+    
+    document.getElementById('seekBar').addEventListener('input', function () {
+        if (currentAudio) {
+            currentAudio.currentTime = this.value;
+        }
+    });
+
+
+// Recherche
+function searchMusicUltra() {
+    let input = document.getElementById("search").value.toLowerCase().trim();
+    let results = document.getElementById("results");
+
+    results.innerHTML = "";
+
+    let musics = document.querySelectorAll(".music");
+    let found = false;
+
+    if(input === ""){
+        results.innerHTML = "";
+        return;
+    }
+
+    musics.forEach(music => {
+
+        let title = music.innerText.toLowerCase();
+        let img = music.querySelector("img").src;
+
+        let onclickAttr = music.getAttribute("onclick");
+
+        if(onclickAttr && title.includes(input)){
+
+            found = true;
+
+            let audioId = onclickAttr.match(/'(.*?)'/)[1];
+            let realTitle = onclickAttr.match(/'(.*?)','(.*?)'/)[2];
+
+            let div = document.createElement("div");
+            div.className = "result-item";
+
+            div.innerHTML = `
+                <img src="${img}">
+                <div class="result-text">
+                    <div class="result-title">${realTitle}</div>
+                </div>
+            `;
+
+            div.onclick = () => {
+                playSong(audioId, realTitle);
+
+                document.getElementById("search").value = "";
+                results.innerHTML = "";
+            };
+
+            results.appendChild(div);
+        }
+    });
+
+    // 🔥 aucun résultat
+    if(!found){
+        results.innerHTML = `
+            <div class="no-result">
+                😢 Aucune musique trouvée
+            </div>
+        `;
+    }
+}
+</script>
+</body>
+</html>
